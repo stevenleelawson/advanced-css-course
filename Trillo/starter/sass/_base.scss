@@ -35,6 +35,9 @@ Grey dark 3: #999
 
 	// can store things other than colors as vars!
 	--shadow-dark: 0 2rem 6rem rgba(0, 0, 0, .3)
+	--shadow-light: 0 2rem 5rem rgba(0, 0, 0, .06)
+
+	--line: 1px solid var(--color-grey-light-2)
 } 
 
 // GLOBAL RESET SECTION: note how border-box is set on html then force the inheritence to EVERYTHING (on a bagel)

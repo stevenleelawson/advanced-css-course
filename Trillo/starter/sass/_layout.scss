@@ -16,7 +16,7 @@
 
 	height: 7rem;
 	background-color: #fff;
-	border-bottom: 1px solid var(--color-grey-light-2);
+	border-bottom: var(--line);
 
 	// puts in a row
 	display: flex;
@@ -50,26 +50,40 @@
 .hotel-view {
 	background-color: #fff;
 
-	//testing
-	height: 80rem;
+	// This is just for initial TEST, so removed. let content define height of box
+	// height: 80rem;
+
 	// by using flex: 1 we are saying we want the elem to GROW (take up available space) as MUCH as it can
 	flex: 1;
 }
 
-// .box-container {
-// 	display: flex;
-// 	width: 50%;
-// }
+.detail {
+	// CONTAINER
+	display: flex;
+	padding: 4.5rem;
+	background-color: var(--color-grey-light-1);
+	border-bottom: var(--line)
+}
 
-// .box {
-// 	width: 200px;
-// 	height: 200px;
-// 	margin: 1rem 1rem;
-// 	background-color: orangered;
-// 	flex-grow: 1;
-// }
+.description {
+	font-size: 1.4rem;
+	background-color: #fff;
 
-// .big {
-// 	flex-grow: 2;
-// 	background-color: aqua;
-// }
+	// horz off set		vert offset		blur rad	opt spread rrad
+	box-shadow: 0 2rem 5rem rgba(0,0,0,.06);
+
+	// adding padding to make elem "grow" a bit
+	padding: 3rem;
+
+	// don't grow / don't shrink / 60% flex basis
+	flex: 0 0 60%;
+
+	margin-right: 4.5rem;
+}
+
+.user-reviews {
+	background-color: olivedrab;
+
+	// want flex to occupy remaing space is equal fo flex-grow: 1;
+	flex: 1;
+}
