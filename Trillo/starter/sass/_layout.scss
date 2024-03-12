@@ -70,7 +70,7 @@
 	background-color: #fff;
 
 	// horz off set		vert offset		blur rad	opt spread rrad
-	box-shadow: 0 2rem 5rem rgba(0,0,0,.06);
+	box-shadow: var(--shadow-light);
 
 	// adding padding to make elem "grow" a bit
 	padding: 3rem;
