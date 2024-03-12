@@ -247,7 +247,7 @@
 	// good habit: set display to flex here in the parent before the &'s
 	display: flex;
 	align-items: center;
-	border-bottom: 1px solid var(--color-grey-light-2);
+	border-bottom: var(--line);
 
 	&__heading {
 		font-size: 2.25rem;
@@ -354,4 +354,101 @@
 		box-shadow: none;
 	}
 
+}
+
+///////////////////////////////////////////////
+// paragraph
+
+// NOTE last-of-type instead of last-child, coz ul is the last chile in container
+.paragraph:not(:last-of-type) {
+	margin-bottom: 2rem;
+}
+
+///////////////////////////////////////////////
+// LIST
+
+.list {
+	// topbottom	leftright
+	margin: 3rem 0;
+	padding : 3rem 0;
+	list-style: none;
+	border-top: var(--line);
+	border-bottom: var(--line);
+
+	display: flex;
+	flex-wrap: wrap;
+
+	&__item {
+		// HOW TO: setting it to 50% below effectively divided up the li into TWO columns!! neat
+		// no grow	no shrink	take up 50% of container
+		flex: 0 0 50%;
+		margin-bottom: .7rem;
+
+		display: flex;
+		align-items: center;
+
+	}
+	// HOW TO: Icon in CSS!!!
+	&__item::before {
+		// NOTE: this was NOT working before this line:
+		content: "";
+		display: inline-block;
+		height: 1rem;
+		width: 1rem;
+		margin-right: .7rem;
+
+		// Older browsers:
+
+		// background-image: url(../img/chevron-thin-right.svg);
+		// background-size: cover;
+
+		// Newer browsers - MASKS! :
+		// used MASKS coz we could not change the COLOR of the icon via css...
+		background-color: var(--color-primary);
+		-webkit-mask-image: url(../img/chevron-thin-right.svg);
+		-webkit-mask-size: cover;
+	}
+}
+
+///////////////////////////////////////////////
+// RECOMMEND
+.recommend {
+	font-size: 1.3rem;
+	color: var(--color-grey-dark-3);
+
+	display: flex;
+
+	// centers all elems on horz axis
+	align-items: center;
+
+	
+
+	&__photo {
+		// border-box includes the padding and the border into the width and the height of the element, so content-box sets it back to default to make them larger 
+		box-sizing: content-box;
+		height: 4rem;
+		width: 4rem;
+
+		// makes photos round like 'profile pics'
+		border-radius: 50%;
+
+		// negative margin to make the profile pics overlap EXCEPT LAST 
+		&:not(:last-child) {
+			margin-right: -1.5rem;
+		}
+
+		// adding the border makes the pics 'smaller' so fix this with box-sizing: content-box
+		border: 3px solid white;
+		
+	}
+
+	&__count {
+		// HOW TO: 
+		// !!TRICK!! to push other elem to the opposide side:
+		margin-right: auto;
+	}
+
+	&__friends {
+
+	}
 }
