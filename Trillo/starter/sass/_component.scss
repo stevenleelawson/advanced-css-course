@@ -324,8 +324,21 @@
 	cursor: pointer;
 	transition: .2s;
 
+	// for SHOW ALL BTN
+	& span {
+		margin-left: 3px;
+
+		// needed for animation
+		transition: margin-left .2s;
+	}
+	
 	&:hover {
 		color: var(--color-grey-dark-1);
+		
+		// for SHOW ALL BTN
+		& span {
+			margin-left: 8px;
+		}
 	}
 
 	&:focus {
@@ -412,6 +425,7 @@
 
 ///////////////////////////////////////////////
 // RECOMMEND
+
 .recommend {
 	font-size: 1.3rem;
 	color: var(--color-grey-dark-3);
@@ -447,8 +461,81 @@
 		// !!TRICK!! to push other elem to the opposide side:
 		margin-right: auto;
 	}
+}
 
-	&__friends {
+///////////////////////////////////////////////
+// REVIEWS
 
+.review {
+	background-color: #fff;
+	// box-shadow: 0 2rem 6rem rgba(0,0,0,.06);
+	box-shadow: var(--shadow-dark);
+	padding: 3rem;
+	margin-bottom: 3.5rem;
+
+	// must always be declared on parent for abs to work below
+	position: relative;
+
+	// since quotes were going outside of container
+	overflow: hidden;
+
+	&__text {
+		margin-bottom: 2rem;
+
+		//z-index ONLY works if you set position
+		z-index: 10;
+		position: relative;
+	}
+
+	&__user {
+		display: flex;
+		align-items: center;
+	}
+
+	&__photo {
+		height: 4.5rem;
+		width: 4.5rem;
+		border-radius: 50%;
+		margin-right: 1.5rem;
+	}
+
+	&__user-box {
+		margin-right: auto;
+	}
+
+	&__user-name {
+		text-transform: uppercase;
+		font-size: 1.1rem;
+		font-weight: 600;
+		margin-bottom: .4rem;
+	}
+	
+	&__user-date {
+		font-size: 1rem;
+		color: var(--color-grey-dark-3);
+
+	}
+
+	&__rating {
+		color: var(--color-primary);
+		font-size: 2.2rem;
+		font-weight: 300;
+	}
+
+	&::before {
+		content: "\201C";
+		
+		// to put the '' in the upper left corner
+		position: absolute;
+		top: -2.75rem;
+		left: -1rem;
+		line-height: 1;
+		font-size: 20rem;
+		color: var(--color-grey-light-2);
+		font-family: sans-serif;
+
+		// set smaller z0ndex
+		// calc(infinity) for z-index arms race, learned from TLDR dev. Neat!!
+		z-index: calc(infinity);
 	}
 }
