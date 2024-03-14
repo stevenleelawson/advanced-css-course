@@ -539,3 +539,80 @@
 		z-index: calc(infinity);
 	}
 }
+
+///////////////////////////////////////////////
+// CTA
+
+.cta {
+	padding: 3.5rem 0;
+	text-align: center;
+
+	&__book-now {
+		text-transform: uppercase;
+		font-size: 2rem;
+		font-weight: 300;
+		margin-bottom: 2.5rem;
+	}
+}
+
+///////////////////////////////////////////////
+// CTA
+
+.btn {
+	text-transform: uppercase;
+	font-size: 1.5rem;
+	font-weight: 300;
+	border: none;
+	border-radius: 100px;
+	background-image: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
+	color: #fff;
+	position: relative;
+
+	// for the 'invisible' span above
+	overflow: hidden;
+	cursor: pointer;
+
+	// select ALL of the child elems
+	// using this selector to keep code DRY
+	& > * {
+		display: inline-block;
+		height: 100%;
+		width: 100%;
+		transition: all .2s;
+	}
+
+	&__visible {
+		padding: 2rem 7.5rem;
+
+	}
+	
+	&__invisible {
+		position: absolute;
+		left: 0;
+		padding: 2rem 0;
+
+		// h x w 100% means one hundo of parent elem
+		
+		top: -100%;
+	}
+	
+	&:hover {
+		// HOW TO: fade of a color into another
+		background-image: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark));
+	}
+
+	&:hover &__visible{
+		// we don't use top here coz elem is not absolute positioned
+		transform: translateY(100%);
+	}
+
+	&:hover &__invisible{
+			// opposite of top above, don't forget the trans!!
+			top: 0;
+	}
+
+	&:focus {
+		outline: none;
+		animation: pulsate 1s infinite;
+	}
+}
