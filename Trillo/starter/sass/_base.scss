@@ -41,6 +41,21 @@ Grey dark 3: #999
 	--line: 1px solid var(--color-grey-light-2);
 } 
 
+// breakpoint largest 1200px/16px
+$bp-largest: 75em; //1200px
+
+// breakpoint largest 1100px breakpoint/16px
+$bp-large: 68.75em; //1100px
+
+// breakpoint largest 900px breakpoint/16px
+$bp-medium: 56.25em; //900px
+
+// breakpoint largest 600px breakpoint/16px
+$bp-small: 37.5em; //600px
+
+// breakpoint largest 500px breakpoint/16px
+$bp-smallest: 31.25em; //500px
+
 // GLOBAL RESET SECTION: note how border-box is set on html then force the inheritence to EVERYTHING (on a bagel)
 * {
 	margin: 0;
@@ -56,6 +71,12 @@ Grey dark 3: #999
 html {
 	box-sizing: border-box;
 	font-size: 62.5%; // 1rem = 10px, 10px\16px (16px being standard for browsers) = 62.5%;
+
+	@media only screen and (max-width: $bp-large) {
+		font-size: 50%;
+		margin: 0;
+		background-color: palegreen;
+	}
 }
 
 body {
@@ -67,5 +88,6 @@ body {
 	color: var(--color-grey-dark-2);
 	//the MINIMUM height will be 100vh but if it needs to be bigger, it CAN be (not strictly enforced)
 	min-height: 100vh;
+
 }
 // END GLOBAL RESET SECTION
