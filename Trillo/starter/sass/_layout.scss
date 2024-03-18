@@ -8,6 +8,13 @@
 	box-shadow: var(--shadow-dark);
 
 	min-height: 50rem;
+
+	// DESKTOP first strategy
+	@media only screen and (max-width: $bp-largest) {
+		margin: 0;
+		max-width: 100%;
+		width: 100%;
+	}
 }
 
 .header {
@@ -26,10 +33,24 @@
 
 	// aligns on the cross axis, a lot easier than finding the perfect margins (still need this for the WHOLE nav bar, not just the shit on the right
 	align-items: center;
+
+	@media only screen and (max-width: $bp-smallest) {
+		// PUTS search bar in new row but only for super small screens
+		flex-wrap: wrap;
+
+		// increase due to spacing issues
+		height: 11rem;
+
+		align-content: space-around;
+	}
 }
 
 .content {
 	display: flex;
+
+	@media only screen and (max-width: $bp-medium) {
+		flex-direction: column;
+	}
 }
 
 .sidebar {
@@ -66,6 +87,15 @@
 
 	// define fontsize on parent elem so can inherit
 	font-size: 1.4rem;
+
+	@media only screen and (max-width: $bp-medium) {
+		padding: 3rem;
+	}
+
+	// NOTE: smaller queries should always come AFTER the larger ones!!!!!! important for conflicting declarations
+	@media only screen and (max-width: $bp-small) {
+		flex-direction: column;
+	}
 }
 
 .description {
@@ -81,6 +111,16 @@
 	flex: 0 0 60%;
 
 	margin-right: 4.5rem;
+	
+	@media only screen and (max-width: $bp-medium) {
+		padding: 2rem;
+		margin-right: 3rem;
+	}
+
+	@media only screen and (max-width: $bp-small) {
+		margin-right: 0;
+		margin-bottom: 3rem;
+	}
 }
 
 .user-reviews {

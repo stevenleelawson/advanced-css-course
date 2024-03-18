@@ -9,11 +9,21 @@
 // SEARCH
 .search {
 	flex: 0 0 40%;
+	background-color: var(--color-grey-light-2);
 
 	// NESTED FLEX!
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	@media only screen and (max-width: $bp-large) {
+		font-size: 50%;
+	}
+
+	@media only screen and (max-width: $bp-smallest) {
+		order: 1;
+		flex: 0 0 100%;
+	}
 
 	&__input {
 		// input elem DOES NOT automatically inherit based on the global document for either of these:
@@ -138,6 +148,10 @@
 	list-style: none;
 	margin-top: 3.5rem;
 
+	@media only screen and (max-width: $bp-medium) {
+		display: flex;
+		margin: 0;
+	}
 	////////////////////////// ANIMATION FOR SIDE NAV
 	// parent set to relative so psuedo is relative to it
 	&__item {
@@ -147,6 +161,15 @@
 		&:not(:last-child) {
 			margin-bottom: .5rem;
 
+			@media only screen and (max-width: $bp-medium) {
+				margin: 0;
+			}
+		}
+
+
+		// this is to make the menu items now along top evenly spaced in fourths
+		@media only screen and (max-width: $bp-medium) {
+			flex: 1;
 		}
 	}
 
@@ -205,6 +228,16 @@
 
 		position: relative;
 		z-index: 10;
+
+		@media only screen and (max-width: $bp-medium) {
+			justify-content: center;
+			padding: 2rem;
+		}
+
+		@media only screen and (max-width: $bp-small) {
+			flex-direction: column;
+			padding: 1.5rem .5rem;
+		}
 	}
 
 	&__icon {
@@ -215,6 +248,13 @@
 
 		// currentColor is the current color being used or the PARENT (in this case, made --color-grey-light-1 as above ^^
 		fill: currentColor;
+
+		@media only screen and (max-width: $bp-small) {
+			margin: 0;
+			margin-bottom: .7rem;
+			width: 1.5rem;
+			height: 1.5rem;
+		}
 	}
 }
 
@@ -226,6 +266,10 @@
 	font-size: 1.2rem;
 	color: var(--color-grey-light-4);
 	padding: 2.5rem;
+
+	@media only screen and (max-width: $bp-medium) {
+		display: none;
+	}
 }
 
 ///////////////////////////////////////////////
@@ -255,6 +299,11 @@
 		text-transform: uppercase;
 		letter-spacing: 1px;
 		padding: 1.5rem 3rem;
+
+		@media only screen and (max-width: $bp-small) {
+			font-size: 1.8rem;
+			padding: 1.25rem 2rem;
+		}
 	}
 
 	&__stars {
@@ -296,17 +345,29 @@
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
+
+		@media only screen and (max-width: $bp-small) {
+			padding: 0 1.5rem;
+		}
 	}
 
 	&__rating-count {
 		text-transform: uppercase;
 		font-size: .8rem;
+
+		@media only screen and (max-width: $bp-small) {
+			font-size: .5rem;
+		}
 	}
 	
 	&__rating-average {
 		font-weight: 300;
 		font-size: 2.25rem;
 		margin-bottom: -.6rem;
+
+		@media only screen and (max-width: $bp-small) {
+			font-size: 1.8rem;
+		}
 	}
 }
 
@@ -448,7 +509,7 @@
 
 		// negative margin to make the profile pics overlap EXCEPT LAST 
 		&:not(:last-child) {
-			margin-right: -1.5rem;
+			margin-right: -2rem;
 		}
 
 		// adding the border makes the pics 'smaller' so fix this with box-sizing: content-box
@@ -461,23 +522,35 @@
 		// !!TRICK!! to push other elem to the opposide side:
 		margin-right: auto;
 	}
+
+	&__friends {
+		// FIX; this insures the 4 circular photos of people stay together as screen gets smaller
+		display: flex;
+	}
 }
 
 ///////////////////////////////////////////////
 // REVIEWS
 
 .review {
+	width: 100%;
 	background-color: #fff;
 	// box-shadow: 0 2rem 6rem rgba(0,0,0,.06);
 	box-shadow: var(--shadow-dark);
 	padding: 3rem;
 	margin-bottom: 3.5rem;
-
+	
 	// must always be declared on parent for abs to work below
 	position: relative;
-
+	
 	// since quotes were going outside of container
 	overflow: hidden;
+	
+	// IN GENERAL, as the break points and screen size get smaller, so should margins and padding
+	@media only screen and (max-width: $bp-medium) {
+		margin-bottom: 3rem;
+		padding: 2rem;
+	}
 
 	&__text {
 		margin-bottom: 2rem;
@@ -546,6 +619,10 @@
 .cta {
 	padding: 3.5rem 0;
 	text-align: center;
+
+	@media only screen and (max-width: $bp-medium) {
+		padding: 2.5rem 0;
+	}
 
 	&__book-now {
 		text-transform: uppercase;
